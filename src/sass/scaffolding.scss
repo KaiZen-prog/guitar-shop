@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Droid sans";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+  src: url("../fonts/droidsans.woff2") format("woff2"),
+  url("../fonts/droidsans.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Droid sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+
+  src: url("../fonts/droidsans-bold.woff2") format("woff2"),
+  url("../fonts/droidsans-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+
+  src: url("../fonts/Poppins-medium.woff2") format("woff2"),
+  url("../fonts/Poppins-medium.woff") format("woff");
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Droid sans", "Arial", sans-serif;
+  width: 100%;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
