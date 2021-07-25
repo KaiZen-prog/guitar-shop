@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/app/app";
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import rootReducer from "./store/reducers/root-reducer";
 import "./sass/style.scss";
+import App from "./components/app/app";
+
 
 const store = createStore(
     rootReducer
@@ -12,7 +13,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-      <App/>
+      <App />
     </Provider>,
-    document.querySelector(`#root`)
+    document.getElementById(`root`)
 );
