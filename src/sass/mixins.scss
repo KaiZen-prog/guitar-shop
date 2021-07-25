@@ -19,18 +19,6 @@
   cursor: pointer;
 }
 
-@mixin background-image($logo, $width, $height) {
-  content: "";
-  position: absolute;
-  display: block;
-
-  width: $width;
-  height: $height;
-
-  background-image: url($logo);
-  background-repeat: no-repeat;
-}
-
 @mixin visually-hidden {
   position: absolute;
   clip: rect(0, 0, 0, 0);

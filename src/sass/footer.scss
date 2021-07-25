@@ -1,0 +1,174 @@
+.footer {
+  position: relative;
+  margin-top: 139px;
+  background-color: #3F3F3F;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 819px;
+    height: 295px;
+    top: -85px;
+    left: 0px;
+    background-image: url("../img/guitar-footer-desktop.jpg");
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    top: -16px;
+    left: 0;
+    background-color: #3F3F3F;
+  }
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 240px auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+          "logo content"
+          "social content";
+  padding: 61px 40px 60px 41px;
+}
+
+.footer__logo {
+  grid-area: logo;
+  margin-bottom: 50px;
+
+  &::before {
+    position: absolute;
+    content: "";
+
+    width: 67px;
+    height: 70px;
+
+    top: 0;
+    left: 0;
+
+    background-image: url("../img/logo-footer-desktop.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+.footer__social {
+  grid-area: social;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__social-item {
+  margin-right: 23px;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer__social-link {
+  display: block;
+  width: 24px;
+  height: 24px;
+
+  &--fb {
+    background-image: url("../img/icon-facebook.svg");
+  }
+
+  &--inst {
+    background-image: url("../img/icon-instagram.svg");
+  }
+
+  &--twitter {
+    background-image: url("../img/icon-twitter.svg");
+  }
+}
+
+.footer__content-container {
+  grid-area: content;
+  display: flex;
+  padding-top: 6px;
+}
+
+.footer__nav-field {
+  &--about-us {
+    margin-right: 18px;
+  }
+
+  &--catalog {
+    margin-right: 36px;
+  }
+
+  &--contacts {
+    margin-left: auto;
+  }
+}
+
+.footer__nav {
+  display: flex;
+}
+
+.footer__nav-title {
+  margin: 0;
+  margin-bottom: 2px;
+  font-size: 14px;
+  line-height: 44px;
+  font-weight: 400;
+  letter-spacing: 0.125em;
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+
+.footer__nav-content {
+  margin: 0;
+  width: 142px;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FFFFFF;
+  letter-spacing: 0.025em;
+
+  &--description {
+    margin-bottom: 12px;
+  }
+
+  &--address {
+    width: 140px;
+    margin-top: -3px;
+    margin-bottom: 14px;
+    letter-spacing: 0.125em;
+  }
+
+  &--working-hours {
+    width: 128px;
+    line-height: 11px;
+    letter-spacing: 0.125em;
+  }
+
+  span {
+    display: block;
+    letter-spacing: 0.1em;
+  }
+}
+
+.footer__nav-list {
+  margin: 0;
+  margin-top: -5px;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__nav-link {
+  font-size: 10px;
+  line-height: 17px;
+  letter-spacing: 0.13em;
+  color: #FFFFFF;
+}
