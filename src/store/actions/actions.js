@@ -4,7 +4,7 @@ export const ActionType = {
   CHANGE_FILTER: `changeFilter`,
   CHANGE_QUANTITY_GUITARS: `changeQuantityGuitars`,
   APPLY_PROMOCODE: `applyPromocode`,
-};
+}
 
 export const ActionCreator = {
   addToCart: (item) => ({
@@ -31,4 +31,4 @@ export const ActionCreator = {
     type: ActionType.APPLY_PROMOCODE,
     payload: promocode,
   }),
-};
+}
