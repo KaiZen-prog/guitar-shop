@@ -1,0 +1,248 @@
+.cart {
+  padding-top: 24px;
+  margin-bottom: 32px;
+}
+
+.cart__title {
+  margin-bottom: 19px;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.03em;
+}
+
+.cart__breadcrumbs {
+  margin-bottom: 28px;
+}
+
+.cart__list {
+  margin: 0;
+  margin-bottom: 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.cart__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 119px auto 174px 82px 168px;
+  grid-template-rows: auto;
+  grid-template-areas: "photo info price quantity total-price";
+  padding: 17px 0 14px 42px;
+  border-bottom: 1px solid #DDDADA;
+
+  &:first-child {
+    border-top: 1px solid #DDDADA;
+  }
+}
+
+.cart__delete-btn {
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 23px;
+  left: 4px;
+  background-color: transparent;
+  background-image: url("../img/icon-close.svg");
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.cart__item-photo {
+  grid-area: photo;
+  width: 52px;
+  height: 132px;
+}
+
+.cart__item-info {
+  grid-area: info;
+  margin-top: 3px;
+  margin-right: 37px;
+}
+
+.cart__item-title {
+  margin: 0;
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.cart__vendor-code {
+  margin: 0;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.075em;
+}
+
+.cart__item-params {
+  margin: 0;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.08em;
+}
+
+.cart__item-price {
+  grid-area: price;
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+  margin-right: 30px;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+}
+
+.cart__quantity-block {
+  grid-area: quantity;
+  margin-top: 23px;
+}
+
+.cart__quantity-btn {
+  width: 27px;
+  height: 30px;
+  color: #9F9E9E;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid #9F9E9E;
+  cursor: pointer;
+
+  &--minus {
+    border-right: none;
+  }
+
+  &--plus {
+    border-left: none;
+  }
+}
+
+.cart__quantity-item {
+  width: 28px;
+  height: 30px;
+  color: #9F9E9E;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #9F9E9E;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  -moz-appearance: textfield;
+
+  &:hover,
+  &:focus {
+    -moz-appearance: number-input;
+  }
+}
+
+.cart__total-price-item {
+  grid-area: total-price;
+  display: flex;
+  align-items: center;
+  margin: 24px -3px 20px auto;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.cart__registration-order {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__discount-title {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.075em;
+}
+
+.cart__discount-info {
+  margin: 0;
+  margin-bottom: 18px;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.075em;
+}
+
+.cart__promocode {
+  width: 170px;
+  height: 36px;
+  margin-right: 33px;
+  font-family: "Droid Sans", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  border: 2px solid #DDDADA;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.cart__promocode-apply {
+  width: 200px;
+  height: 36px;
+  font-family: "Droid Sans", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.075em;
+  color: #fff;
+  background-color: #C1C1C1;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: #585757;
+  }
+
+  &:active {
+    background-color: #9F9E9E;
+  }
+}
+
+.cart__total-price {
+  margin: 0 4px 44px 0;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 15px;
+  text-align: right;
+  letter-spacing: 0.065em;
+}
+
+.cart__submit-order {
+  display: block;
+  width: 220px;
+  height: 36px;
+  font-family: "Droid Sans", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 36px;
+  letter-spacing: 0.075em;
+  color: #fff;
+  text-align: center;
+  background: #E27F00;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: #FFA839;
+  }
+
+  &:active {
+    background-color: #DA8B26;
+  }
+}

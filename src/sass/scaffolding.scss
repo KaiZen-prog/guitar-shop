@@ -14,37 +14,56 @@
   font-display: swap;
 }
 
-html {
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 body {
+  min-width: 1020px;
+  -webkit-min-logical-width: 1003px;
+  margin: 0 auto;
   font-family: "Droid Sans", "Arial", sans-serif;
-  width: 100%;
-  margin: auto;
+  color: #000;
+  background-color: #fff;
+
+  @media (min-width: 1020px) {
+    overflow-x: hidden;
+  }
 }
 
 a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.hidden {
-  display: none;
-}
-
-.visually-hidden {
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
   position: absolute;
-  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .app__header,
+  .app__footer {
+    flex: 0 0 auto;
+  }
+
+  .app__main {
+    flex: 1 0 auto;
+  }
+}
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }

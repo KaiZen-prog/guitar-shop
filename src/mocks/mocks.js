@@ -1,5 +1,3 @@
-const GUITARS_QUANTITY = 100;
-
 export const promocodesMock = {
   GITARAHIT: {
     value: 10,

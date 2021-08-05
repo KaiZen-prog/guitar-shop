@@ -41,20 +41,6 @@
 .footer__logo {
   grid-area: logo;
   margin-bottom: 50px;
-
-  &::before {
-    position: absolute;
-    content: "";
-
-    width: 67px;
-    height: 70px;
-
-    top: 0;
-    left: 0;
-
-    background-image: url("../img/logo-footer-desktop.svg");
-    background-repeat: no-repeat;
-  }
 }
 
 .footer__social {
@@ -137,6 +123,7 @@
   letter-spacing: 0.025em;
 
   &--description {
+    width: 140px;
     margin-bottom: 12px;
   }
 
@@ -160,13 +147,15 @@
 }
 
 .footer__nav-list {
-  margin: 0;
-  margin-top: -5px;
-  padding: 0;
+  margin: -5px 0 0;
+  padding: 2px 0 0;
   list-style: none;
 }
 
 .footer__nav-link {
+  display: block;
+  margin-bottom: 3px;
+
   font-size: 10px;
   line-height: 17px;
   letter-spacing: 0.13em;

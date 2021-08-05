@@ -1,0 +1,104 @@
+.add-to-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.add-to-cart__container {
+  position: relative;
+  width: 740px;
+  height: 185px;
+  padding: 30px 50px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
+  border-radius: 4px;
+}
+
+.add-to-cart__close-icon {
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 23px;
+  right: 23px;
+  background-color: transparent;
+  background-image: url("../img/icon-close.svg");
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-cart__title {
+  margin: 0;
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 15px;
+  letter-spacing: 0.045em;
+  color: #474747;
+}
+
+.add-to-cart__action-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-to-cart__link {
+  display: block;
+  width: 220px;
+  height: 46px;
+  margin-right: 38px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 46px;
+  letter-spacing: 0.075em;
+  color: #FFFFFF;
+  text-align: center;
+  background-color: #E27F00;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: #FFA839;
+  }
+
+  &:active {
+    background-color: #DA8B26;
+  }
+}
+
+.add-to-cart__close-btn {
+  width: 220px;
+  height: 46px;
+  font-family: "Droid Sans", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.075em;
+  color: #585757;
+  background-color: transparent;
+  border: 1px solid #585757;
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    color: rgba(88, 87, 87, 0.7);
+    border: 1px solid rgba(88, 87, 87, 0.7);
+  }
+
+  &:active {
+    color: rgba(88, 87, 87, 0.5);
+    border: 1px solid rgba(108, 108, 108, 0.5);
+  }
+}

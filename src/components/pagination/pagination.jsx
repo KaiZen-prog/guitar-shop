@@ -19,7 +19,6 @@ const Pagination = ({page, numberOfPages, onChangePage}) => {
             name={elem}
             href="#"
             className={`catalog__pagination-link ${+elem === page ? `catalog__pagination-link--active` : ``}`}
-            disabled={+elem === page ? `disabled` : ``}
           >
             {elem}
           </a>
@@ -27,7 +26,14 @@ const Pagination = ({page, numberOfPages, onChangePage}) => {
       ))}
       {page < numberOfPages && (
         <li className="catalog__pagination-item">
-          <a onClick={onChangePage} name={page + 1} href="#" className="catalog__pagination-link catalog__pagination-link--more">Далее</a>
+          <a
+              onClick={onChangePage}
+              name={page + 1}
+              href="#"
+              className="catalog__pagination-link catalog__pagination-link--more"
+          >
+            Далее
+          </a>
         </li>
       )}
     </ul>

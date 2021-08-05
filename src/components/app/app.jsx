@@ -9,9 +9,10 @@ import Footer from "../footer/footer";
 
 const App = () => {
   return (
-    <BrowserRouter>
+  <BrowserRouter>
+    <div className="app">
       <Header/>
-      <main>
+      <main className="app__main">
         <Switch>
           <Redirect from={AppRoute.ROOT} to={AppRoute.CATALOG} exact />
           <Route path={AppRoute.CATALOG} exact>
@@ -23,7 +24,8 @@ const App = () => {
         </Switch>
       </main>
       <Footer/>
-    </BrowserRouter>
+    </div>
+  </BrowserRouter>
   );
 };
 

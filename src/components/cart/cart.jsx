@@ -67,9 +67,15 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
             <p className="cart__discount-info">Введите свой промокод, если он у вас есть.</p>
             <div className="cart__discount-container">
               <input type="text" className="cart__promocode" defaultValue=""/>
-              <button className="cart__promocode-apply" onClick={(evt) => {
+              <button
+                  className="cart__promocode-apply"
+                  onClick={(evt) => {
                 onApplyPromocode(evt.target.previousElementSibling.value);
-              }}>Применить купон</button>
+              }
+                  }
+              >
+                Применить купон
+              </button>
             </div>
           </div>
           <div className="cart__total">
@@ -78,7 +84,12 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
           </div>
         </section>
         {popupOpened && (
-            <ChangeCartPopup actionType="remove" guitar={selectedGuitar} onPopupClosure={onPopupClosure} removeFromCart={removeFromCart}/>
+            <ChangeCartPopup
+                actionType="remove"
+                guitar={selectedGuitar}
+                onPopupClosure={onPopupClosure}
+                removeFromCart={removeFromCart}
+            />
         )}
       </section>
   );

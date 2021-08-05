@@ -1,0 +1,40 @@
+.breadcrumbs {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  padding-left: 1px;
+  list-style: none;
+  letter-spacing: 0.03em;
+}
+
+.breadcrumbs__item {
+  position: relative;
+  margin-right: 36px;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 13px;
+    height: 8px;
+    top: 7px;
+    right: -25px;
+    background-image: url("../img/icon-breadcrumbs-arrow.svg");
+    background-repeat: no-repeat;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.breadcrumbs__link {
+  margin-bottom: 35px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #474747;
+}
