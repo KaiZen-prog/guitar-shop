@@ -13,18 +13,18 @@ const withCatalog = (Component) => {
       this.state = {
         page: 1,
         sort: {
-          type: ``,
-          direction: ``,
+          type: '',
+          direction: '',
         },
         filter: {
-          minPrice: ``,
-          maxPrice: ``,
+          minPrice: '',
+          maxPrice: '',
           type: [],
           numbersOfStrings: [],
         },
         availableStrings: new Set([...typeOfStrings.electro, ...typeOfStrings.acoustic, ...typeOfStrings.ukulele]),
         popupOpened: false,
-        selectedGuitar: ``,
+        selectedGuitar: '',
       };
 
       this.onChangePage = this.onChangePage.bind(this);
@@ -44,7 +44,7 @@ const withCatalog = (Component) => {
     }
 
     componentWillUnmount() {
-      document.documentElement.style.overflow = `auto`;
+      document.documentElement.style.overflow = 'auto';
     }
 
     onChangePage(evt) {
@@ -65,7 +65,7 @@ const withCatalog = (Component) => {
     onMinPriceChange(evt) {
       let price = +evt.target.value;
 
-      if (price > this.state.filter.maxPrice && this.state.filter.maxPrice !== ``) {
+      if (price > this.state.filter.maxPrice && this.state.filter.maxPrice !== '') {
         price = this.state.filter.maxPrice;
       }
 
@@ -83,7 +83,7 @@ const withCatalog = (Component) => {
     onMaxPriceChange(evt) {
       let price = +evt.target.value;
 
-      if (price < this.state.filter.minPrice && this.state.filter.minPrice !== ``) {
+      if (price < this.state.filter.minPrice && this.state.filter.minPrice !== '') {
         price = this.state.filter.minPrice;
       }
 
@@ -135,10 +135,10 @@ const withCatalog = (Component) => {
       const {minPrice, maxPrice, type, numbersOfStrings} = this.state.filter;
 
       const filteredGuitars = this.props.guitars.filter((elem) => {
-        if (elem.price < minPrice && minPrice !== ``) {
+        if (elem.price < minPrice && minPrice !== '') {
           return false;
         }
-        if (elem.price > maxPrice && maxPrice !== ``) {
+        if (elem.price > maxPrice && maxPrice !== '') {
           return false;
         }
         if (type.length !== 0) {
@@ -165,7 +165,7 @@ const withCatalog = (Component) => {
       this.setState({sort: Object.assign(
           {}, this.state.sort, {
             type: evt.target.value,
-            direction: this.state.sort.direction === `` ? SortDirectionType.ASCENDING : this.state.sort.direction,
+            direction: this.state.sort.direction === '' ? SortDirectionType.ASCENDING : this.state.sort.direction,
           }
       )}, this.sortingGuitars);
     }
@@ -173,7 +173,7 @@ const withCatalog = (Component) => {
     onSortDirectionChange(evt) {
       this.setState({sort: Object.assign(
           {}, this.state.sort, {
-            type: this.state.sort.type === `` ? SortType.PRICE : this.state.sort.type,
+            type: this.state.sort.type === '' ? SortType.PRICE : this.state.sort.type,
             direction: evt.target.value,
           }
       )}, this.sortingGuitars);
@@ -192,6 +192,7 @@ const withCatalog = (Component) => {
         return 0;
       }).slice();
 
+      // eslint-disable-next-line no-self-assign
       direction === SortDirectionType.DESCENDING ? sortGuitars = sortGuitars.reverse() : sortGuitars = sortGuitars;
 
       this.props.filteringGuitars(sortGuitars);
@@ -199,21 +200,21 @@ const withCatalog = (Component) => {
 
     onBuyButtonClick(guitar) {
       this.setState({
-        popupOpened: `confirm`,
+        popupOpened: 'confirm',
         selectedGuitar: guitar,
       });
-      document.addEventListener(`keydown`, this.popupCloseKeydown);
-      document.documentElement.style.overflow = `hidden`;
+      document.addEventListener('keydown', this.popupCloseKeydown);
+      document.documentElement.style.overflow = 'hidden';
     }
 
     onAddToCart() {
-      this.setState({popupOpened: `success`});
+      this.setState({popupOpened: 'success'});
     }
 
     onPopupClosure() {
       this.setState({popupOpened: false});
-      document.removeEventListener(`keydown`, this.popupCloseKeydown);
-      document.documentElement.style.overflow = `auto`;
+      document.removeEventListener('keydown', this.popupCloseKeydown);
+      document.documentElement.style.overflow = 'auto';
     }
 
     popupCloseKeydown(evt) {

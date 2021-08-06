@@ -12,8 +12,8 @@ const withCart = (Component) => {
 
       this.state = {
         popupOpened: false,
-        selectedGuitar: ``,
-      }
+        selectedGuitar: '',
+      };
 
       this.onPopupOpening = this.onPopupOpening.bind(this);
       this.onPopupClosure = this.onPopupClosure.bind(this);
@@ -27,14 +27,14 @@ const withCart = (Component) => {
       this.setState({
         popupOpened: true,
         selectedGuitar: guitar,
-      })
-      document.addEventListener(`keydown`, this.popupCloseKeydown);
+      });
+      document.addEventListener('keydown', this.popupCloseKeydown);
     }
 
     onPopupClosure() {
       this.setState({popupOpened: false});
-      document.removeEventListener(`keydown`, this.popupCloseKeydown);
-      document.documentElement.style.overflow = `auto`;
+      document.removeEventListener('keydown', this.popupCloseKeydown);
+      document.documentElement.style.overflow = 'auto';
     }
 
     popupCloseKeydown(evt) {
@@ -61,14 +61,15 @@ const withCart = (Component) => {
     getDiscount(totalPrice) {
       const promocode = this.props.activePromocode;
 
-      if (promocode.type === `percent`) {
+      if (promocode.type === 'percent') {
         return totalPrice * (1 - promocode.value / 100);
       }
 
-      if (promocode.type === `value`) {
+      if (promocode.type === 'value') {
         let result = totalPrice - promocode.value;
 
-        if (promocode.hasOwnProperty(`maxPercent`)) {
+        // eslint-disable-next-line no-prototype-builtins
+        if (promocode.hasOwnProperty('maxPercent')) {
           result / totalPrice < (1 - promocode.maxPercent / 100) ?
               result = totalPrice * (1 - promocode.maxPercent / 100)
               :
@@ -80,6 +81,7 @@ const withCart = (Component) => {
     }
 
     onApplyPromocode(promocode) {
+      // eslint-disable-next-line no-prototype-builtins
       if (promocodesMock.hasOwnProperty(promocode)) {
         this.props.applyPromocode(promocodesMock[promocode]);
       }
@@ -144,9 +146,9 @@ const withCart = (Component) => {
     removeFromCart: PropTypes.func.isRequired,
     changeQuantityGuitars: PropTypes.func.isRequired,
     applyPromocode: PropTypes.func.isRequired,
-  }
+  };
 
   return connect(mapStateToProps, mapDispatchToProps)(WithCart);
-}
+};
 
 export default withCart;

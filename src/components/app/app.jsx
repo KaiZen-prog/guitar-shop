@@ -1,10 +1,10 @@
 import React from 'react';
 import {Switch, BrowserRouter, Route, Redirect} from 'react-router-dom';
-import {AppRoute} from "../../const";
+import {AppRoute} from '../../const';
 import Header from '../header/header';
 import Catalog from '../catalog/catalog';
 import Cart from '../cart/cart';
-import Footer from "../footer/footer";
+import Footer from '../footer/footer';
 
 
 const App = () => {
@@ -29,6 +29,6 @@ const App = () => {
   );
 };
 
-App.displayName = `App`;
+App.displayName = 'App';
 
 export default App;

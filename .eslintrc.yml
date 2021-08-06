@@ -4,15 +4,22 @@ env:
   commonjs: true
   jest: true
 
-extends: ['htmlacademy/es6', 'plugin:react/recommended']
+extends:
+  - 'eslint:recommended'
+  - 'plugin:react/recommended'
+
+rules:
+  semi: error
+  quotes: [2, "single", { "avoidEscape": true }]
 
 parserOptions:
   ecmaFeatures:
     jsx: true
-  ecmaVersion: 6
+  ecmaVersion: 9
   sourceType: module
 
-plugins: ['react']
+plugins:
+  - 'react'
 
 settings:
   react:

@@ -10,7 +10,10 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
   return (
       <section className="cart container">
         <h1 className="cart__title">Корзина</h1>
-        <Breadcrumbs additionalClass="cart__breadcrumbs" pathChain={[{name: `Главная`, link: `#`}, {name: `Каталог`, link: `/catalog`}, {name: `Оформляем`}]}/>
+        <Breadcrumbs
+            additionalClass="cart__breadcrumbs"
+            pathChain={[{name: 'Главная', link: '#'}, {name: 'Каталог', link: '/catalog'}, {name: 'Оформляем'}]}
+        />
         <ul className="cart__list">
           <Repeat numTimes={cart.length}>
             {(i) => (
@@ -30,7 +33,7 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
                   <div className="cart__quantity-block">
                     <button className="cart__quantity-btn cart__quantity-btn--minus" onClick={() => {
                       if (quantityGuitarsFromCart[cart[i].name] - 1 <= 0) {
-                        onPopupOpening(cart[i])
+                        onPopupOpening(cart[i]);
                         changeQuantityGuitars(cart[i].name, 1);
                       } else {
                         changeQuantityGuitars(cart[i].name, quantityGuitarsFromCart[cart[i].name] - 1);
@@ -46,7 +49,7 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
                         onBlur={(evt) => {
                           if (evt.target.value <= 0) {
                             changeQuantityGuitars(cart[i].name, 1);
-                            onPopupOpening(cart[i])
+                            onPopupOpening(cart[i]);
                           } else {
                             changeQuantityGuitars(cart[i].name, Number(evt.target.value));
                           }
@@ -93,7 +96,7 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
         )}
       </section>
   );
-}
+};
 
 Cart.propTypes = {
   cart: PropTypes.arrayOf(
@@ -129,8 +132,8 @@ Cart.propTypes = {
   onPopupClosure: PropTypes.func.isRequired,
   changeQuantityGuitars: PropTypes.func.isRequired,
   onApplyPromocode: PropTypes.func.isRequired,
-}
+};
 
-Cart.displayName = `Cart`;
+Cart.displayName = 'Cart';
 
 export default withCart(Cart);

@@ -40,7 +40,7 @@ const Catalog = (props) => {
   return (
       <section className="catalog container">
         <h1 className="catalog__title">Каталог гитар</h1>
-        <Breadcrumbs additionalClass="catalog__breadcrumbs" pathChain={[{name: `Главная`, link: `#`}, {name: `Каталог`}]}/>
+        <Breadcrumbs additionalClass="catalog__breadcrumbs" pathChain={[{name: 'Главная', link: '#'}, {name: 'Каталог'}]}/>
 
         <div className="catalog__flex-container">
           <form action="#" className="catalog__filter">
@@ -111,9 +111,9 @@ const Catalog = (props) => {
                         className="catalog__filter-checkbox"
                         onChange={onNumbersOfStringsChange}
                         disabled={
-                          availableStrings.has(`4`)
-                            ? ``
-                            : `disabled`
+                          availableStrings.has('4')
+                            ? ''
+                            : 'disabled'
                         }
                     />
                     <span className="catalog__custom-checkbox"></span>
@@ -128,9 +128,9 @@ const Catalog = (props) => {
                         className="catalog__filter-checkbox"
                         onChange={onNumbersOfStringsChange}
                         disabled={
-                          availableStrings.has(`6`)
-                              ? ``
-                              : `disabled`
+                          availableStrings.has('6')
+                              ? ''
+                              : 'disabled'
                         }
                     />
                     <span className="catalog__custom-checkbox"></span>
@@ -144,9 +144,9 @@ const Catalog = (props) => {
                         name="7"
                         className="catalog__filter-checkbox"
                         onChange={onNumbersOfStringsChange}
-                        disabled={availableStrings.has(`7`)
-                            ? ``
-                            : `disabled`
+                        disabled={availableStrings.has('7')
+                            ? ''
+                            : 'disabled'
                         }
                     />
                     <span className="catalog__custom-checkbox"></span>
@@ -160,9 +160,9 @@ const Catalog = (props) => {
                         name="12"
                         className="catalog__filter-checkbox"
                         onChange={onNumbersOfStringsChange}
-                        disabled={availableStrings.has(`12`)
-                            ? ``
-                            : `disabled`
+                        disabled={availableStrings.has('12')
+                            ? ''
+                            : 'disabled'
                         }
                     />
                     <span className="catalog__custom-checkbox"></span>
@@ -209,7 +209,7 @@ const Catalog = (props) => {
                     value={SortDirectionType.ASCENDING}
                     className="catalog__sorting-direction-input visually-hidden"
                     onChange={onSortDirectionChange}
-                    disabled={sort.direction === SortDirectionType.ASCENDING ? `disabled` : ``}
+                    disabled={sort.direction === SortDirectionType.ASCENDING ? 'disabled' : ''}
                 />
                 <label htmlFor="sort-ascending" className="catalog__sorting-direction-item catalog__sorting-direction-item--ascending">
                   <span className="visually-hidden">По возрастанию</span>
@@ -222,7 +222,7 @@ const Catalog = (props) => {
                     value={SortDirectionType.DESCENDING}
                     className="catalog__sorting-direction-input visually-hidden"
                     onChange={onSortDirectionChange}
-                    disabled={sort.direction === SortDirectionType.DESCENDING ? `disabled` : ``}
+                    disabled={sort.direction === SortDirectionType.DESCENDING ? 'disabled' : ''}
                 />
                 <label htmlFor="sort-descending" className="catalog__sorting-direction-item catalog__sorting-direction-item--descending">
                   <span className="visually-hidden">По убыванию</span>
@@ -234,7 +234,7 @@ const Catalog = (props) => {
               <Repeat numTimes={guitars.slice((page - 1) * NUMBER_OF_ITEMS_TO_PAGE, (page * NUMBER_OF_ITEMS_TO_PAGE)).length}>
                 {(i) => (
                     <ProductCard
-                        i={i}
+                        key={i}
                         product={guitars[(page - 1) * NUMBER_OF_ITEMS_TO_PAGE + i]}
                         onBuyButtonClick={onBuyButtonClick}
                     />
@@ -250,15 +250,15 @@ const Catalog = (props) => {
           </div>
         </div>
 
-        {popupOpened === `confirm` && (
+        {popupOpened === 'confirm' && (
             <ChangeCartPopup actionType="add" guitar={selectedGuitar} onAddToCart={onAddToCart} onPopupClosure={onPopupClosure}/>
         )}
-        {popupOpened === `success` && (
+        {popupOpened === 'success' && (
             <AddToCartPopup onPopupClosure={onPopupClosure}/>
         )}
       </section>
   );
-}
+};
 
 Catalog.propTypes = {
   state: PropTypes.shape({
@@ -312,8 +312,8 @@ Catalog.propTypes = {
   onBuyButtonClick: PropTypes.func.isRequired,
   onAddToCart: PropTypes.func.isRequired,
   onPopupClosure: PropTypes.func.isRequired,
-}
+};
 
-Catalog.displayName = `Catalog`;
+Catalog.displayName = 'Catalog';
 
 export default withCatalog(Catalog);

@@ -1,11 +1,11 @@
 import React from 'react';
-import {Repeat} from "../../utils/common";
-import PropTypes from "prop-types";
+import {Repeat} from '../../utils/common';
+import PropTypes from 'prop-types';
 
-const ProductCard = ({i, product, onBuyButtonClick}) => {
+const ProductCard = ({product, onBuyButtonClick}) => {
 
   return (
-      <li className="catalog__item" key={i}>
+      <li className="catalog__item">
         <img src={`./img/${product.photo}.jpg`} alt="Гитара" className="catalog__item-photo" />
         <div className="catalog__reviews-block">
           <Repeat numTimes={5}>
@@ -13,8 +13,8 @@ const ProductCard = ({i, product, onBuyButtonClick}) => {
                 <span
                     key={j}
                     className={`catalog__reviews-star ${product.rating >= j + 1 
-                        ? `catalog__reviews-star--active` 
-                        : ``}`}
+                        ? 'catalog__reviews-star--active' 
+                        : ''}`}
                 ></span>
             )}
           </Repeat>
@@ -31,13 +31,12 @@ const ProductCard = ({i, product, onBuyButtonClick}) => {
           }}>Купить</button>
         </div>
       </li>
-  )
-}
+  );
+};
 
 ProductCard.propTypes = {
-  i: PropTypes.number.isRequired,
-
   product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
@@ -45,8 +44,8 @@ ProductCard.propTypes = {
   }).isRequired,
 
   onBuyButtonClick: PropTypes.func.isRequired,
-}
+};
 
-ProductCard.displayName = `ProductCard`;
+ProductCard.displayName = 'ProductCard';
 
 export default ProductCard;

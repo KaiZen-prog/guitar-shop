@@ -30,6 +30,6 @@ Breadcrumbs.propTypes = {
   additionalClass: PropTypes.string,
 };
 
-Breadcrumbs.displayName = `Breadcrumbs`;
+Breadcrumbs.displayName = 'Breadcrumbs';
 
 export default Breadcrumbs;

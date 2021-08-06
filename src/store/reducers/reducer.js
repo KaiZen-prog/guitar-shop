@@ -7,7 +7,7 @@ const InitialState = {
   cart: [],
   quantityGuitarsFromCart: {},
   activePromocode: {},
-}
+};
 
 const reducer = (state = InitialState, action) => {
   switch (action.type) {
@@ -27,11 +27,10 @@ const reducer = (state = InitialState, action) => {
             }),
       });
     case ActionType.REMOVE_FROM_CART:
-      const quantityGuitarsFromCart = state.quantityGuitarsFromCart;
-      delete quantityGuitarsFromCart[action.payload.name];
+      delete state.quantityGuitarsFromCart[action.payload.name];
       return Object.assign({}, state, {
         cart: state.cart.filter((elem) => elem !== action.payload),
-        quantityGuitarsFromCart: Object.assign({}, quantityGuitarsFromCart),
+        quantityGuitarsFromCart: Object.assign({}, state.quantityGuitarsFromCart),
       });
     case ActionType.CHANGE_FILTER:
       return Object.assign({}, state, {
@@ -49,6 +48,6 @@ const reducer = (state = InitialState, action) => {
       });
     default: return state;
   }
-}
+};
 
 export default reducer;

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer = () => {
@@ -90,8 +89,8 @@ const Footer = () => {
         </div>
       </footer>
   );
-}
+};
 
-Footer.displayName = `Footer`;
+Footer.displayName = 'Footer';
 
 export default Footer;

@@ -12,8 +12,8 @@ const ChangeCartPopup = ({actionType, guitar, onAddToCart, onPopupClosure, addTo
         <div className="change-cart__container" onClick={(evt) => evt.stopPropagation()}>
           <button className="change-cart__close-icon" onClick={onPopupClosure}></button>
           <h2 className="change-cart__title">
-            {actionType === `add` && (`Добавить товар в корзину`)}
-            {actionType === `remove` && (`Удалить этот товар? `)}
+            {actionType === 'add' && ('Добавить товар в корзину')}
+            {actionType === 'remove' && ('Удалить этот товар? ')}
           </h2>
           <div className="change-cart__content-container">
             <img src={`./img/${photo}.jpg`} alt="Гитара" className="change-cart__item-photo" />
@@ -24,17 +24,17 @@ const ChangeCartPopup = ({actionType, guitar, onAddToCart, onPopupClosure, addTo
               <p className="change-cart__item-price">Цена: {price.toLocaleString()} ₽</p>
             </div>
             <div className="change-cart__btns-container">
-              <button className="change-cart__change-btn" onClick={actionType === `add` ? () => {
+              <button className="change-cart__change-btn" onClick={actionType === 'add' ? () => {
                 addToCart(guitar);
                 onAddToCart();
               } : () => {
                 removeFromCart(guitar);
                 onPopupClosure();
               }}>
-                {actionType === `add` && (`Добавить в корзину`)}
-                {actionType === `remove` && (`Удалить товар`)}
+                {actionType === 'add' && ('Добавить в корзину')}
+                {actionType === 'remove' && ('Удалить товар')}
               </button>
-              {actionType === `remove` && (
+              {actionType === 'remove' && (
                   <button className="change-cart__close-btn" onClick={onPopupClosure}>Продолжить покупки</button>
               )}
             </div>
@@ -42,7 +42,7 @@ const ChangeCartPopup = ({actionType, guitar, onAddToCart, onPopupClosure, addTo
         </div>
       </div>
   );
-}
+};
 
 const mapStateToProps = ({cart, quantityGuitarsFromCart}) => ({
   cart,
@@ -75,6 +75,6 @@ ChangeCartPopup.propTypes = {
   onPopupClosure: PropTypes.func.isRequired,
   addToCart: PropTypes.func,
   removeFromCart: PropTypes.func,
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChangeCartPopup);

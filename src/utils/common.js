@@ -1,4 +1,4 @@
-import {INTERMEDIATE_PAGINATION_VALUE} from "../const";
+import {INTERMEDIATE_PAGINATION_VALUE} from '../const';
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -16,10 +16,10 @@ export const Repeat = (props) => {
 export const generatePagination = (page, length) => {
   const result = [];
 
-  result.push(`1`);
+  result.push('1');
 
   if (page > INTERMEDIATE_PAGINATION_VALUE) {
-    result.push(`...`);
+    result.push('...');
   }
 
   for (let i = page - 2; i <= page + 2; i++) {
@@ -29,10 +29,10 @@ export const generatePagination = (page, length) => {
   }
 
   if (page < length - INTERMEDIATE_PAGINATION_VALUE + 1) {
-    result.push(`...`);
+    result.push('...');
   }
 
   result.push(String(length));
 
   return result;
-}
+};
