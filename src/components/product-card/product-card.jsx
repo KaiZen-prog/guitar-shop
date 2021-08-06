@@ -6,7 +6,7 @@ const ProductCard = ({product, onBuyButtonClick}) => {
 
   return (
       <li className="catalog__item">
-        <img src={`./img/${product.photo}.jpg`} alt="Гитара" className="catalog__item-photo" />
+        <img src={`../img/${product.photo}.jpg`} alt="Гитара" className="catalog__item-photo" />
         <div className="catalog__reviews-block">
           <Repeat numTimes={5}>
             {(j) => (
