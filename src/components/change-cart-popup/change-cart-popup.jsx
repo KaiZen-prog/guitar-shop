@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {typeOfGuitars} from '../../mocks/mocks';
 import {ActionCreator} from '../../store/actions/actions';
 
-const ChangeCartPopup = ({actionType, guitar, onAddToCart, onPopupClosure, addToCart, removeFromCart}) => {
-  const {photo, name, vendorCode, type, numberOfStrings, price} = guitar;
+const ChangeCartPopup = ({actionType, product, onAddToCart, onPopupClosure, addToCart, removeFromCart}) => {
+  const {photo, name, vendorCode, type, numberOfStrings, price} = product;
 
   return (
       <div className="change-cart" onClick={onPopupClosure}>
@@ -16,7 +16,7 @@ const ChangeCartPopup = ({actionType, guitar, onAddToCart, onPopupClosure, addTo
             {actionType === 'remove' && ('Удалить этот товар? ')}
           </h2>
           <div className="change-cart__content-container">
-            <img src={`./img/${photo}.jpg`} alt="Гитара" className="change-cart__item-photo" />
+            <img src={photo} alt="Гитара" className="change-cart__item-photo" />
             <div className="change-cart__item-info">
               <h3 className="change-cart__item-title">Гитара {name}</h3>
               <p className="change-cart__vendor-code">Артикул: {vendorCode}</p>
@@ -25,10 +25,10 @@ const ChangeCartPopup = ({actionType, guitar, onAddToCart, onPopupClosure, addTo
             </div>
             <div className="change-cart__btns-container">
               <button className="change-cart__change-btn" onClick={actionType === 'add' ? () => {
-                addToCart(guitar);
+                addToCart(product);
                 onAddToCart();
               } : () => {
-                removeFromCart(guitar);
+                removeFromCart(product);
                 onPopupClosure();
               }}>
                 {actionType === 'add' && ('Добавить в корзину')}
@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 ChangeCartPopup.propTypes = {
   actionType: PropTypes.string.isRequired,
-  guitar: PropTypes.shape({
+  product: PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     numberOfStrings: PropTypes.number.isRequired,

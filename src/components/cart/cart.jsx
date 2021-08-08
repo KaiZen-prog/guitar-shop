@@ -23,7 +23,7 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
                   }}>
                     <span className="visually-hidden">Удалить товар</span>
                   </button>
-                  <img src={`./img/${cart[i].photo}.jpg`} alt="Гитара" className="cart__item-photo" />
+                  <img src={cart[i].photo} alt="Гитара" className="cart__item-photo" />
                   <div className="cart__item-info">
                     <h3 className="cart__item-title">{typeOfGuitars[cart[i].type]} {cart[i].name}</h3>
                     <p className="cart__vendor-code">Артикул: {cart[i].vendorCode}</p>
@@ -89,7 +89,7 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
         {popupOpened && (
             <ChangeCartPopup
                 actionType="remove"
-                guitar={selectedGuitar}
+                product={selectedGuitar}
                 onPopupClosure={onPopupClosure}
                 removeFromCart={removeFromCart}
             />

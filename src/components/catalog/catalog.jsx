@@ -251,7 +251,12 @@ const Catalog = (props) => {
         </div>
 
         {popupOpened === 'confirm' && (
-            <ChangeCartPopup actionType="add" guitar={selectedGuitar} onAddToCart={onAddToCart} onPopupClosure={onPopupClosure}/>
+            <ChangeCartPopup
+                actionType="add"
+                product={selectedGuitar}
+                onAddToCart={onAddToCart}
+                onPopupClosure={onPopupClosure}
+            />
         )}
         {popupOpened === 'success' && (
             <AddToCartPopup onPopupClosure={onPopupClosure}/>

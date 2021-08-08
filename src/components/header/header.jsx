@@ -1,16 +1,19 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const';
+import {ReactComponent as Logo} from '../../img/logo-header-desktop.svg';
 
 const Header = ({cart}) => {
   return (
       <header className="header app__header">
         <div className="header__container container">
-          <a href="#top" className="header__logo">
-            <img src="./img/logo-header-desktop.svg" alt="Guitar shop"/>
-          </a>
+          <Link to={AppRoute.ROOT} className="header__logo">
+            <Logo className="logo__img" alt="Guitar shop"/>
+            <span className="visually-hidden">Главная страница</span>
+          </Link>
+
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item">

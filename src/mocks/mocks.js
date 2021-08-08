@@ -1,3 +1,7 @@
+import acoustic from '../img/acoustic.png';
+import electro from '../img/electro.png';
+import ukulele from '../img/ukulele.png';
+
 export const promocodesMock = {
   GITARAHIT: {
     value: 10,
@@ -35,7 +39,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 17500,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'TK129049',
@@ -45,7 +49,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 29500,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'RO111111',
@@ -55,7 +59,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 6800,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'TK436457',
@@ -65,7 +69,7 @@ const guitars = [
     numberOfStrings: 6,
     price: 30000,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'DI192138',
@@ -75,7 +79,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 3500,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic,
   },
   {
     vendorCode: 'SO934345',
@@ -85,7 +89,7 @@ const guitars = [
     numberOfStrings: 6,
     price: 15300,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'DI082347',
@@ -95,7 +99,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 2200,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'SO135646',
@@ -105,7 +109,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 30000,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'VO154751',
@@ -115,7 +119,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 1700,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'TK244556',
@@ -125,7 +129,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 23000,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'TK134663',
@@ -135,7 +139,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 18700,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'SO123212',
@@ -145,7 +149,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 35000,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'SO123234',
@@ -155,7 +159,7 @@ const guitars = [
     numberOfStrings: 6,
     price: 14900,
     rating: 4,
-    photo: 'electro',
+    photo: electro
   },
   {
     vendorCode: 'VO519510',
@@ -165,7 +169,7 @@ const guitars = [
     numberOfStrings: 6,
     price: 7600,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'VO457369',
@@ -175,7 +179,7 @@ const guitars = [
     numberOfStrings: 6,
     price: 6500,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'FB625903',
@@ -185,7 +189,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 12000,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'FB576948',
@@ -195,7 +199,7 @@ const guitars = [
     numberOfStrings: 7,
     price: 9900,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'LU012032',
@@ -205,7 +209,7 @@ const guitars = [
     numberOfStrings: 12,
     price: 8900,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'LU546853',
@@ -215,7 +219,7 @@ const guitars = [
     numberOfStrings: 12,
     price: 10500,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'LU458283',
@@ -225,7 +229,7 @@ const guitars = [
     numberOfStrings: 6,
     price: 13300,
     rating: 4,
-    photo: 'acoustic',
+    photo: acoustic
   },
   {
     vendorCode: 'RO324341',
@@ -235,7 +239,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 4800,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'RO214235',
@@ -245,7 +249,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 1900,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'DI132414',
@@ -255,7 +259,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 2500,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'DI934754',
@@ -265,7 +269,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 3800,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'DI034292',
@@ -275,7 +279,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 4100,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'MI193214',
@@ -285,7 +289,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 2700,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
   {
     vendorCode: 'VO043244',
@@ -295,7 +299,7 @@ const guitars = [
     numberOfStrings: 4,
     price: 6700,
     rating: 4,
-    photo: 'ukulele',
+    photo: ukulele
   },
 ];
 

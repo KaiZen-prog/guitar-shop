@@ -1,12 +1,17 @@
 import React from 'react';
+import {AppRoute} from '../../const';
+import {ReactComponent as Logo} from '../../img/logo-footer-desktop.svg';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
   return (
       <footer className="footer app__footer">
         <div className="footer__container container">
-          <a href="#top" className="footer__logo">
-            <img src="./img/logo-footer-desktop.svg" alt="Guitar shop" />
-          </a>
+          <Link to={AppRoute.ROOT} className="footer__logo">
+            <Logo className="logo__img" alt="Guitar shop"/>
+            <span className="visually-hidden">Главная страница</span>
+          </Link>
+
           <ul className="footer__social">
             <li className="footer__social-item">
               <a href="#top" className="footer__social-link footer__social-link--fb">
