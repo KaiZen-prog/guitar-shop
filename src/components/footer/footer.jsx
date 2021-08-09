@@ -8,7 +8,7 @@ const Footer = () => {
       <footer className="footer app__footer">
         <div className="footer__container container">
           <Link to={AppRoute.ROOT} className="footer__logo">
-            <Logo className="logo__img" alt="Guitar shop"/>
+            <Logo className="footer__img" alt="Guitar shop"/>
             <span className="visually-hidden">Главная страница</span>
           </Link>
 

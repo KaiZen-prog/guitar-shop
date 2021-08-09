@@ -10,7 +10,7 @@ const Header = ({cart}) => {
       <header className="header app__header">
         <div className="header__container container">
           <Link to={AppRoute.ROOT} className="header__logo">
-            <Logo className="logo__img" alt="Guitar shop"/>
+            <Logo className="header__img" alt="Guitar shop"/>
             <span className="visually-hidden">Главная страница</span>
           </Link>
 

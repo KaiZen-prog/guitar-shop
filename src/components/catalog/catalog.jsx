@@ -5,7 +5,7 @@ import {Repeat} from '../../utils/common';
 import ProductCard from '../product-card/product-card';
 import AddToCartPopup from '../add-to-cart-popup/add-to-cart-popup';
 import ChangeCartPopup from '../change-cart-popup/change-cart-popup';
-import {NUMBER_OF_ITEMS_TO_PAGE, SortDirectionType, SortType} from '../../const';
+import {NUMBER_OF_ITEMS_TO_PAGE, SortDirectionType, SortType, PopupStates, PopupActionTypes} from '../../const';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 import Pagination from '../pagination/pagination';
 
@@ -244,21 +244,23 @@ const Catalog = (props) => {
 
             <Pagination
                 page={page}
-                numberOfPages={Math.ceil(guitars.length / NUMBER_OF_ITEMS_TO_PAGE)}
+                numberOfPages={guitars.length === 0
+                  ? 1
+                  : Math.ceil(guitars.length / NUMBER_OF_ITEMS_TO_PAGE)}
                 onChangePage={onChangePage}
             />
           </div>
         </div>
 
-        {popupOpened === 'confirm' && (
+        {popupOpened === PopupStates.CONFIRM && (
             <ChangeCartPopup
-                actionType="add"
+                actionType={PopupActionTypes.ADD}
                 product={selectedGuitar}
                 onAddToCart={onAddToCart}
                 onPopupClosure={onPopupClosure}
             />
         )}
-        {popupOpened === 'success' && (
+        {popupOpened === PopupStates.SUCCESS && (
             <AddToCartPopup onPopupClosure={onPopupClosure}/>
         )}
       </section>
@@ -294,6 +296,7 @@ Catalog.propTypes = {
       PropTypes.object,
     ]).isRequired,
   }).isRequired,
+
   guitars: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
@@ -306,6 +309,7 @@ Catalog.propTypes = {
         numberOfReviews: PropTypes.number.isRequired,
       })
   ).isRequired,
+
   onInputChange: PropTypes.func.isRequired,
   onChangePage: PropTypes.func.isRequired,
   onMinPriceChange: PropTypes.func.isRequired,

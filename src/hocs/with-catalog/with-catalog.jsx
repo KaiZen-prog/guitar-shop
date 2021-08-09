@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {typeOfStrings} from '../../mocks/mocks';
+import {guitars, typeOfStrings} from '../../mocks/mocks';
 import {ActionCreator} from '../../store/actions/actions';
-import {KeyCode, SortDirectionType, SortType} from '../../const';
+import {KeyCode, SortDirectionType, SortType, PopupStates} from '../../const';
 
 const withCatalog = (Component) => {
   class WithCatalog extends React.PureComponent {
@@ -16,12 +16,14 @@ const withCatalog = (Component) => {
           type: '',
           direction: '',
         },
+
         filter: {
-          minPrice: '',
-          maxPrice: '',
+          minPrice: guitars.reduce((prev, current) => (prev.price < current.price) ? prev : current).price,
+          maxPrice: guitars.reduce((prev, current) => (prev.price > current.price) ? prev : current).price,
           type: [],
           numbersOfStrings: [],
         },
+
         availableStrings: new Set([...typeOfStrings.electro, ...typeOfStrings.acoustic, ...typeOfStrings.ukulele]),
         popupOpened: false,
         selectedGuitar: '',
@@ -192,15 +194,16 @@ const withCatalog = (Component) => {
         return 0;
       }).slice();
 
-      // eslint-disable-next-line no-self-assign
-      direction === SortDirectionType.DESCENDING ? sortGuitars = sortGuitars.reverse() : sortGuitars = sortGuitars;
+      if (direction === SortDirectionType.DESCENDING) {
+        sortGuitars = sortGuitars.reverse();
+      }
 
       this.props.filteringGuitars(sortGuitars);
     }
 
     onBuyButtonClick(guitar) {
       this.setState({
-        popupOpened: 'confirm',
+        popupOpened: PopupStates.CONFIRM,
         selectedGuitar: guitar,
       });
       document.addEventListener('keydown', this.popupCloseKeydown);
@@ -208,7 +211,7 @@ const withCatalog = (Component) => {
     }
 
     onAddToCart() {
-      this.setState({popupOpened: 'success'});
+      this.setState({popupOpened: PopupStates.SUCCESS});
     }
 
     onPopupClosure() {

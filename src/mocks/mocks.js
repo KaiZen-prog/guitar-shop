@@ -30,7 +30,7 @@ export const typeOfGuitars = {
   ukulele: 'Укулеле',
 };
 
-const guitars = [
+export const guitars = [
   {
     vendorCode: 'SO757575',
     name:	'Честер Bass',
@@ -302,5 +302,3 @@ const guitars = [
     photo: ukulele
   },
 ];
-
-export default guitars;

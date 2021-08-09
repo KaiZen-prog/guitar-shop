@@ -18,6 +18,10 @@ export const generatePagination = (page, length) => {
 
   result.push('1');
 
+  if (length === 1) {
+    return result;
+  }
+
   if (page > INTERMEDIATE_PAGINATION_VALUE) {
     result.push('...');
   }
@@ -33,6 +37,5 @@ export const generatePagination = (page, length) => {
   }
 
   result.push(String(length));
-
   return result;
 };

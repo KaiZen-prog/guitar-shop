@@ -4,6 +4,22 @@ export const AppRoute = {
   CART: '/cart'
 };
 
+export const PromocodeAttributes = {
+  PERCENT: 'percent',
+  VALUE: 'value',
+  MAXPERCENT: 'maxPercent'
+};
+
+export const PopupStates = {
+  CONFIRM: 'confirm',
+  SUCCESS: 'success'
+};
+
+export const PopupActionTypes = {
+  ADD: 'add',
+  REMOVE: 'remove'
+};
+
 export const INTERMEDIATE_PAGINATION_VALUE = 4;
 
 export const NUMBER_OF_ITEMS_TO_PAGE = 9;

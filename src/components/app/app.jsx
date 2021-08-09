@@ -1,5 +1,4 @@
 import React from 'react';
-//import {Redirect, Switch, Route, BrowserRouter} from 'react-router-dom';
 import {Redirect, Switch, Route, HashRouter} from 'react-router-dom';
 import {AppRoute} from '../../const';
 import Header from '../header/header';

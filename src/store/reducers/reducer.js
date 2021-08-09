@@ -1,4 +1,4 @@
-import guitars from '../../mocks/mocks';
+import {guitars} from '../../mocks/mocks';
 import {ActionType} from '../actions/actions';
 
 const InitialState = {

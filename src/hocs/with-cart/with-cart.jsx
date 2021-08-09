@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/actions/actions';
 import {promocodesMock} from '../../mocks/mocks';
-import {KeyCode} from '../../const';
+import {KeyCode, PromocodeAttributes} from '../../const';
 
 const withCart = (Component) => {
   class WithCart extends React.PureComponent {
@@ -61,15 +61,14 @@ const withCart = (Component) => {
     getDiscount(totalPrice) {
       const promocode = this.props.activePromocode;
 
-      if (promocode.type === 'percent') {
+      if (promocode.type === PromocodeAttributes.PERCENT) {
         return totalPrice * (1 - promocode.value / 100);
       }
 
-      if (promocode.type === 'value') {
+      if (promocode.type === PromocodeAttributes.VALUE) {
         let result = totalPrice - promocode.value;
 
-        // eslint-disable-next-line no-prototype-builtins
-        if (promocode.hasOwnProperty('maxPercent')) {
+        if (Object.prototype.hasOwnProperty.call(promocode, PromocodeAttributes.MAXPERCENT)) {
           result / totalPrice < (1 - promocode.maxPercent / 100) ?
               result = totalPrice * (1 - promocode.maxPercent / 100)
               :
@@ -81,8 +80,7 @@ const withCart = (Component) => {
     }
 
     onApplyPromocode(promocode) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (promocodesMock.hasOwnProperty(promocode)) {
+        if (Object.prototype.hasOwnProperty.call(promocodesMock, promocode)) {
         this.props.applyPromocode(promocodesMock[promocode]);
       }
     }
@@ -137,12 +135,17 @@ const withCart = (Component) => {
           numberOfReviews: PropTypes.number.isRequired,
         })
     ).isRequired,
-    quantityGuitarsFromCart: PropTypes.objectOf(PropTypes.number).isRequired,
+
+    quantityGuitarsFromCart: PropTypes.shape({
+      model: PropTypes.number
+    }).isRequired,
+
     activePromocode: PropTypes.shape({
       value: PropTypes.number,
       type: PropTypes.string,
       maxPercent: PropTypes.number,
     }),
+
     removeFromCart: PropTypes.func.isRequired,
     changeQuantityGuitars: PropTypes.func.isRequired,
     applyPromocode: PropTypes.func.isRequired,

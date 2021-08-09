@@ -5,8 +5,22 @@ import { typeOfGuitars } from '../../mocks/mocks';
 import {Repeat} from '../../utils/common';
 import ChangeCartPopup from '../change-cart-popup/change-cart-popup';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
+import {PopupActionTypes} from '../../const';
 
-const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selectedGuitar, totalPrice, onPopupOpening, onPopupClosure, changeQuantityGuitars, onApplyPromocode}) => {
+const Cart = (props) => {
+  const {
+    cart,
+    quantityGuitarsFromCart   ,
+    removeFromCart,
+    popupOpened,
+    selectedGuitar,
+    totalPrice,
+    onPopupOpening,
+    onPopupClosure,
+    changeQuantityGuitars,
+    onApplyPromocode
+  } = props;
+
   return (
       <section className="cart container">
         <h1 className="cart__title">Корзина</h1>
@@ -88,7 +102,7 @@ const Cart = ({cart, quantityGuitarsFromCart, removeFromCart, popupOpened, selec
         </section>
         {popupOpened && (
             <ChangeCartPopup
-                actionType="remove"
+                actionType={PopupActionTypes.REMOVE}
                 product={selectedGuitar}
                 onPopupClosure={onPopupClosure}
                 removeFromCart={removeFromCart}
@@ -111,9 +125,14 @@ Cart.propTypes = {
         numberOfReviews: PropTypes.number.isRequired,
       })
   ).isRequired,
-  quantityGuitarsFromCart: PropTypes.objectOf(PropTypes.number).isRequired,
+
+  quantityGuitarsFromCart: PropTypes.shape({
+    model: PropTypes.number
+  }).isRequired,
+
   removeFromCart: PropTypes.func.isRequired,
   popupOpened: PropTypes.bool.isRequired,
+
   selectedGuitar: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -127,6 +146,7 @@ Cart.propTypes = {
       numberOfReviews: PropTypes.number.isRequired,
     })
   ]).isRequired,
+
   totalPrice: PropTypes.number.isRequired,
   onPopupOpening: PropTypes.func.isRequired,
   onPopupClosure: PropTypes.func.isRequired,

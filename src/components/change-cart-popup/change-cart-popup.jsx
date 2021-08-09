@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {typeOfGuitars} from '../../mocks/mocks';
 import {ActionCreator} from '../../store/actions/actions';
+import {PopupActionTypes} from '../../const';
 
 const ChangeCartPopup = ({actionType, product, onAddToCart, onPopupClosure, addToCart, removeFromCart}) => {
   const {photo, name, vendorCode, type, numberOfStrings, price} = product;
@@ -12,8 +13,8 @@ const ChangeCartPopup = ({actionType, product, onAddToCart, onPopupClosure, addT
         <div className="change-cart__container" onClick={(evt) => evt.stopPropagation()}>
           <button className="change-cart__close-icon" onClick={onPopupClosure}></button>
           <h2 className="change-cart__title">
-            {actionType === 'add' && ('Добавить товар в корзину')}
-            {actionType === 'remove' && ('Удалить этот товар? ')}
+            {actionType === PopupActionTypes.ADD && ('Добавить товар в корзину')}
+            {actionType === PopupActionTypes.REMOVE && ('Удалить этот товар? ')}
           </h2>
           <div className="change-cart__content-container">
             <img src={photo} alt="Гитара" className="change-cart__item-photo" />
@@ -24,17 +25,17 @@ const ChangeCartPopup = ({actionType, product, onAddToCart, onPopupClosure, addT
               <p className="change-cart__item-price">Цена: {price.toLocaleString()} ₽</p>
             </div>
             <div className="change-cart__btns-container">
-              <button className="change-cart__change-btn" onClick={actionType === 'add' ? () => {
+              <button className="change-cart__change-btn" onClick={actionType === PopupActionTypes.ADD ? () => {
                 addToCart(product);
                 onAddToCart();
               } : () => {
                 removeFromCart(product);
                 onPopupClosure();
               }}>
-                {actionType === 'add' && ('Добавить в корзину')}
-                {actionType === 'remove' && ('Удалить товар')}
+                {actionType === PopupActionTypes.ADD && ('Добавить в корзину')}
+                {actionType === PopupActionTypes.REMOVE && ('Удалить товар')}
               </button>
-              {actionType === 'remove' && (
+              {actionType === PopupActionTypes.REMOVE && (
                   <button className="change-cart__close-btn" onClick={onPopupClosure}>Продолжить покупки</button>
               )}
             </div>

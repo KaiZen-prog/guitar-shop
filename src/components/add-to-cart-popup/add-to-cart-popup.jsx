@@ -18,7 +18,7 @@ const AddToCartPopup = ({onPopupClosure}) => {
 };
 
 AddToCartPopup.propTypes = {
-  onPopupClosure: PropTypes.func.isRequired,
+  onPopupClosure: PropTypes.func.isRequired
 };
 
 AddToCartPopup.displayName = 'AddToCartPopup';
