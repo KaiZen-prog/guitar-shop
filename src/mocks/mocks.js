@@ -18,17 +18,31 @@ export const promocodesMock = {
   },
 };
 
-export const typeOfStrings = {
-  electro: ['4', '6', '7'],
-  acoustic: ['6', '7', '12'],
-  ukulele: ['4'],
-};
-
 export const typeOfGuitars = {
   electro: 'Электрогитара',
   acoustic: 'Акустика',
   ukulele: 'Укулеле',
 };
+
+export const guitarTypes = [
+  {
+    type: 'acoustic',
+    strings: ['6', '7', '12'],
+    title: 'Акустические гитары'
+  },
+
+  {
+    type: 'electro',
+    strings: ['4', '6', '7'],
+    title: 'Электрогитары'
+  },
+
+  {
+    type: 'ukulele',
+    strings: ['4'],
+    title: 'Укулеле'
+  },
+];
 
 export const guitars = [
   {

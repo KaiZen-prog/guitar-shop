@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {guitars, typeOfStrings} from '../../mocks/mocks';
+import {guitars, guitarTypes} from '../../mocks/mocks';
 import {ActionCreator} from '../../store/actions/actions';
 import {KeyCode, SortDirectionType, SortType, PopupStates} from '../../const';
 
@@ -24,7 +24,8 @@ const withCatalog = (Component) => {
           numbersOfStrings: [],
         },
 
-        availableStrings: new Set([...typeOfStrings.electro, ...typeOfStrings.acoustic, ...typeOfStrings.ukulele]),
+        availableStrings: new Set(guitarTypes.reduce((acc, obj) => [...acc, ...obj.strings], [])),
+        availableGuitarTypes: new Set(guitarTypes.map(({type}) => type)),
         popupOpened: false,
         selectedGuitar: '',
       };
@@ -59,7 +60,7 @@ const withCatalog = (Component) => {
 
       this.setState({filter: Object.assign(
           {}, this.state.filter, {
-            [name]: +value,
+            [name]: value,
           }
       )});
     }
@@ -111,10 +112,10 @@ const withCatalog = (Component) => {
         let availableStrings = [];
 
         if (this.state.filter.type.length === 0) {
-          availableStrings = [...typeOfStrings.electro, ...typeOfStrings.acoustic, ...typeOfStrings.ukulele];
+          availableStrings = guitarTypes.reduce((acc, obj) => [...acc, ...obj.strings], []);
         } else {
           this.state.filter.type.map((elem) => {
-            availableStrings = [...availableStrings, ...typeOfStrings[elem]];
+            availableStrings = [...availableStrings, ...guitarTypes.filter((value) => value.type === elem)[0].strings];
           });
         }
         this.setState({availableStrings: new Set(availableStrings)}, this.filteringGuitars);
@@ -123,6 +124,7 @@ const withCatalog = (Component) => {
 
     onNumbersOfStringsChange(evt) {
       const {checked, name} = evt.target;
+
       this.setState({filter: Object.assign(
           {}, this.state.filter, {
             numbersOfStrings: checked ?
@@ -130,7 +132,23 @@ const withCatalog = (Component) => {
               :
               this.state.filter.numbersOfStrings.filter((elem) => elem !== name),
           }
-      )}, this.filteringGuitars);
+      )}, () => {
+        let availableGuitars = [];
+
+        if (this.state.filter.numbersOfStrings.length === 0) {
+          availableGuitars = guitarTypes.map(({type}) => type);
+        } else {
+          this.state.filter.numbersOfStrings.map((elem) => {
+            guitarTypes.map((guitarType) => {
+              if (guitarType.strings.indexOf(elem) !== -1) {
+                availableGuitars.push(guitarType.type);
+              }
+            });
+          });
+
+        }
+        this.setState({availableGuitarTypes: new Set(availableGuitars)}, this.filteringGuitars);
+      });
     }
 
     filteringGuitars() {

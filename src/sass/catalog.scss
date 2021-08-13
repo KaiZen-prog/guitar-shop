@@ -220,6 +220,7 @@
 }
 
 .catalog__item {
+  position: relative;
   width: 220px;
   height: 304px;
   margin-right: 20px;
@@ -236,6 +237,13 @@
 .catalog__item-photo {
   display: block;
   margin: 0 auto 3px auto;
+}
+
+.catalog__card-wrapper {
+  position: absolute;
+
+  left: 14px;
+  bottom: 19px;
 }
 
 .catalog__reviews-block {
@@ -281,7 +289,6 @@
 
 .catalog__item-more {
   display: flex;
-  justify-content: space-between;
   margin-left: -1px;
   margin-right: -1px;
 }
@@ -290,6 +297,7 @@
   display: block;
   width: 89px;
   height: 23px;
+  margin-right: 16px;
   font-size: 12px;
   line-height: 23px;
   letter-spacing: 0.02em;

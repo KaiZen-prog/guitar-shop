@@ -6,6 +6,7 @@ import ProductCard from '../product-card/product-card';
 import AddToCartPopup from '../add-to-cart-popup/add-to-cart-popup';
 import ChangeCartPopup from '../change-cart-popup/change-cart-popup';
 import {NUMBER_OF_ITEMS_TO_PAGE, SortDirectionType, SortType, PopupStates, PopupActionTypes} from '../../const';
+import {guitarTypes} from '../../mocks/mocks';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 import Pagination from '../pagination/pagination';
 
@@ -31,6 +32,7 @@ const Catalog = (props) => {
     filter,
     sort,
     availableStrings,
+    availableGuitarTypes,
     popupOpened,
     selectedGuitar
   } = state;
@@ -52,8 +54,9 @@ const Catalog = (props) => {
                 <input
                     type="number"
                     name="minPrice"
+                    min="0"
+                    step="100"
                     className="catalog__input catalog__input--min-price"
-                    min="0" placeholder="1 000"
                     onChange={onInputChange}
                     onBlur={onMinPriceChange}
                     value={minPrice}
@@ -62,8 +65,9 @@ const Catalog = (props) => {
                 <input
                     type="number"
                     name="maxPrice"
+                    min="0"
+                    step="100"
                     className="catalog__input catalog__input--max-price"
-                    min="0" placeholder="30 000"
                     onChange={onInputChange}
                     onBlur={onMaxPriceChange}
                     value={maxPrice}
@@ -75,27 +79,27 @@ const Catalog = (props) => {
               <h3 className="catalog__filter-field-title">Тип гитар</h3>
 
               <ul className="catalog__filter-list">
-                <li className="catalog__filter-item">
-                  <label className="catalog__label-checkbox">
-                    <input type="checkbox" name="acoustic" className="catalog__filter-checkbox" onChange={onTypeChange} />
-                    <span className="catalog__custom-checkbox"></span>
-                    <span className="catalog__checkbox-value">Акустические гитары</span>
-                  </label>
-                </li>
-                <li className="catalog__filter-item">
-                  <label className="catalog__label-checkbox">
-                    <input type="checkbox" name="electro" className="catalog__filter-checkbox" onChange={onTypeChange} />
-                    <span className="catalog__custom-checkbox"></span>
-                    <span className="catalog__checkbox-value">Электрогитары</span>
-                  </label>
-                </li>
-                <li className="catalog__filter-item">
-                  <label className="catalog__label-checkbox">
-                    <input type="checkbox" name="ukulele" className="catalog__filter-checkbox" onChange={onTypeChange} />
-                    <span className="catalog__custom-checkbox"></span>
-                    <span className="catalog__checkbox-value">Укулеле</span>
-                  </label>
-                </li>
+                <Repeat numTimes={guitarTypes.length}>
+                  {(i) => (
+                      <li className="catalog__filter-item" key={i}>
+                        <label className="catalog__label-checkbox">
+                          <input
+                              type="checkbox"
+                              name={guitarTypes[i].type}
+                              className="catalog__filter-checkbox"
+                              onChange={onTypeChange}
+                              disabled={
+                                availableGuitarTypes.has(guitarTypes[i].type)
+                                    ? ''
+                                    : 'disabled'
+                              }
+                          />
+                          <span className="catalog__custom-checkbox"></span>
+                          <span className="catalog__checkbox-value">{guitarTypes[i].title}</span>
+                        </label>
+                      </li>
+                  )}
+                </Repeat>
               </ul>
             </fieldset>
 
@@ -283,10 +287,11 @@ Catalog.propTypes = {
         PropTypes.string,
         PropTypes.number,
       ]).isRequired,
-      type: PropTypes.array.isRequired,
+      type: PropTypes.arrayOf(PropTypes.string).isRequired,
       numbersOfStrings: PropTypes.array.isRequired,
     }).isRequired,
-    availableStrings: PropTypes.object.isRequired,
+    availableStrings: PropTypes.objectOf(PropTypes.string).isRequired,
+    availableGuitarTypes: PropTypes.objectOf(PropTypes.string).isRequired,
     popupOpened: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.bool,
